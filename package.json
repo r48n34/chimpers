@@ -2,10 +2,11 @@
   "name": "basic-ts",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "start": "ts-node src/play.ts",
-    "dev": "ts-node src/play.ts",
+    "start": "ts-node src/index.ts",
+    "dev": "ts-node src/index.ts",
     "test": "jest"
   },
   "keywords": [],
@@ -20,6 +21,7 @@
     "typescript": "^4.9.3"
   },
   "dependencies": {
-    "clipboardy": "2.3.0"
+    "clipboardy": "2.3.0",
+    "file-type": "16.5.4"
   }
 }

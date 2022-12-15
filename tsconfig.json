@@ -21,6 +21,7 @@
     "exclude": [
         "test",
         "node_modules",
+        "test-data",
         "dist",
         "build",
         "scripts",
