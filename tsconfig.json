@@ -3,12 +3,12 @@
         "strict": true,
         "module": "commonjs",
         "target": "es6",
+        "declaration": true,
         "outDir": "./dist",
         "lib": ["es6", "dom"],
         "sourceMap": true,
         "allowJs": true,
-        "jsx": "react",
-        "esModuleInterop":true,
+        "esModuleInterop": true,
         "moduleResolution": "node",
         "noImplicitReturns": true,
         "noImplicitThis": true,
@@ -18,6 +18,9 @@
         "resolveJsonModule": true,
         "noUnusedLocals": true
     },
+    "include": [
+        "src/**/*"
+    ],
     "exclude": [
         "test",
         "node_modules",
