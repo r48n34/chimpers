@@ -28,6 +28,10 @@ export async function decodeFile(
     outputPath: string = process.cwd()
 ): Promise<Uint8Array> {
 
+    if(!encodedText || encodedText === ""){
+        throw new Error("decodeFile function missing encodedText input in params 'encodedText'.");
+    }
+
     if(!outputFileName || outputFileName === ""){
         throw new Error("decodeFile function missing outputFileName input in params 'outputFileName'.");
     }
