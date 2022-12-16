@@ -8,7 +8,38 @@
 </head>
 <body>
 
+
+    <input type="file" id="inputFile" name="avatar">
+
     <script src="https://cdn.jsdelivr.net/gh/r48n34/chimpers/webOutput/chimper.js"></script>
+
+    <script>
+        const inputFile = document.getElementById("inputFile");
+        inputFile.addEventListener("input", async () => {
+            let file = inputFile.files[0];
+
+            
+            let reader = new FileReader();
+            reader.readAsArrayBuffer(file);
+            
+            reader.onload = function() {
+                console.log(reader.result);
+                
+                let hiddenDataArr = encodeFile( new Uint8Array(reader.result) );
+                
+                let textArr = "Hello mate I am tom.".split(" ");
+                textArr[0] += hiddenDataArr.join("")
+
+                const finalText = textArr.join(" ")
+                console.log(finalText);
+
+                //Hello‍‍‌‌‍‌⁠⁢‌‌‌⁢‌‌‍‌‌‍‍‌‌‌‌‌‌‌‌‍‌‌‌‌‌‌⁠‌‌‌‌‌⁠‍‌⁠⁠⁠⁠‍⁠‌⁢⁢‍‍‍‍⁠‍‌⁢‍‌‍‌‌⁠⁠⁠‍⁠⁠‌‌⁠⁠⁢‌‌‌‌‌‌‌‌‌‌‌‌‌⁠‍‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌⁠‍‌‌‌‌‌‌‌‌‌‌‌‌‍⁠⁠‌‍⁠‍‍‍⁠⁢‌‍⁠⁢‌‍⁠⁢⁢‌⁠⁢⁠‍⁢‍‌‍⁢⁠‌‍⁢‍‌‍‌⁠⁢⁢‌‌‌⁢‍‍⁠‌‍‌⁢⁠⁠⁠⁢‍⁠‌‌‌⁢‍⁢⁠‍⁢‌‍⁠⁠⁢⁠‌‌‌⁠‍‍‍⁠‌⁢⁠⁢‍‍⁢‌‌‍‍⁠‌⁠⁢‍‍‍‍⁢‍⁠‌⁢⁠⁠‌‍‌⁢‍⁢⁢‍⁠‌‍‌⁠‍‍⁢‌⁢‌⁢‍‍⁢‌⁢‌‍⁠‌‍‍‌‌⁢‌‍⁠⁢‍⁢⁢‌‍‌⁠⁢‍⁠‌‍⁢‍‍⁢‌⁠⁠‌‌⁠‍‌⁢⁠⁠‌⁢⁠‌‍‍‍‌⁢⁠‌⁢‌‍‌⁢⁢⁢⁠⁢⁠⁠⁢‌⁠⁢⁢⁠‍‌⁠‍⁢‌‍‌‍‍‌‌‍‌⁠⁢‌‌‌‍‌‌‌⁠‌⁢⁢⁢‌‌‌‌‌‍‍‌‌‌‌‌‌‌‌‍‌‌‌‌‌‌⁠‌‌‌‌‌⁠‍‌⁠⁠⁠⁠‍⁠‌⁢⁢‍‍‍‍⁠‍‌⁢‍‌‍‌‌⁠⁠⁠‍⁠⁠‌‌⁠⁠⁢‌‌‌‌‌‌‌‌‌‌‌‌‌⁠‍‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌⁠‍‌‌‌‌‌⁠‍‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌⁠‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‍⁠⁠‌‍⁠‍‍‍⁠⁢‌‍⁠⁢‌‍⁠⁢⁢‌⁠⁢⁠‍⁢‍‌‍⁢⁠‌‍⁢‍‌‌‌⁠⁠‌‌‌‌‌⁠‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‍‌‌‌‌‌‍⁠‌‌‌‌‌⁢⁠⁠⁠⁢‍⁢‌⁢⁢‌‌⁢⁠‍‍⁠‌‍⁠‌‍‌‌⁢‍⁠‍‌‌‌‍⁠⁢⁠‌⁠⁢‍‌‌⁢‌⁠‍‍‌⁠⁠‌⁠⁠‌‍‌‌⁢‍⁠‍‌‌‌‍⁢⁠⁠⁠⁢‍⁢‌⁢⁢‌‌⁢⁠‍‍⁠‌‍⁠‌‍‌‌⁢‍⁠‍‌‌‌‍‍‍‌‌‍‌⁠⁢‌‌‍‍‌‌‍⁠‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‍‌‌‌‌‌‌‌‍‌‌‌‌‍‍⁠⁢‌‌‌‌‌‌‌‌‌‌‌‌‍‍‌⁠‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌ mate I am tom.
+                
+            };
+
+        })  
+
+    </script>
     
 </body>
 </html>
