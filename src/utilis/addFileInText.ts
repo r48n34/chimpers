@@ -6,7 +6,7 @@ interface AddFileInTextOptions{
     copyToBoard?: boolean
 }
 
-export function addFileInText(text: string, file_path: string, option?: AddFileInTextOptions): string{
+export function addFileInText(text: string, file_path: string, option?: AddFileInTextOptions): string {
 
     const options = {
         copyToBoard: false,

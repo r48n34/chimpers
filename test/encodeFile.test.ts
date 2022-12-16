@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-import { decodeFile } from "../src/utilis/dataCode/decodeFile"
+import { decodeFile } from "../src/utilis/decodeFile"
 
 describe("decodeFile function testing", () => {
 
