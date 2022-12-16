@@ -32,3 +32,8 @@ import path from "path";
 
 })()
 ```
+
+## Web script
+```html
+
+```

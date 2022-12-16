@@ -1,6 +1,6 @@
 {
   "name": "chimpers",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "hide files in text",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,12 +8,14 @@
     "start": "ts-node src/index.ts",
     "dev": "ts-node src/index.ts",
     "build": "tsc",
-    "buildWeb": "swc ./src/utilis/dataCode -o ./webOutput/index.min.js --source-maps false && cd ./webOutput && del index.min.js.map",
+    "buildWeb": "swc ./src/utilis/dataCode -o ./webOutput/index.min.js --source-maps false && cd ./webOutput",
     "test": "jest --maxWorkers 2"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["chimp"],
+  "author": "reemo",
+  "homepage": "https://github.com/r48n34/chimpers",
+  "repository": "https://github.com/r48n34/chimpers",
+  "license": "MIT",
   "devDependencies": {
     "@swc/cli": "^0.1.57",
     "@swc/core": "^1.3.23",
