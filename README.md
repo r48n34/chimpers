@@ -42,7 +42,7 @@ import path from "path";
 ```ts
 // Hide files in text
 function addFileInText(
-    text: string,         //        
+    text: string,                 
     file_path: string,
     option?: AddFileInTextOptions
 ): string 
@@ -75,3 +75,8 @@ encodeFile(data: Buffer): string[]
 ```
 
 Check [here](https://github.com/r48n34/chimpers/blob/main/web/index.html) to see how to use in web environment.
+
+## Roadmap
+- [ ] Encrypt passowrd options
+- [ ] Better compress size
+- [ ] Web npm packages
