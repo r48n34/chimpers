@@ -98,7 +98,7 @@
             reader.readAsArrayBuffer(file);
 
             reader.onload = function() {
-                console.log(reader.result);
+                // console.log(reader.result);
                 
                 let hiddenDataArr = encodeFile( new Uint8Array(reader.result) );
                 

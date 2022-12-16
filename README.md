@@ -10,6 +10,7 @@ yarn add chimpers
 ## Notices
 1. Hidden file is not encrypted currently. 
 2. Do not attempt to hide a large size file.
+3. Single file than smaller than 4kb is recommended.
 
 ## Usage
 ```ts
@@ -59,3 +60,18 @@ async function decodeFile(
     outputPath: string = process.cwd()
 ): Promise<Uint8Array> 
 ```
+
+## Web script
+```html
+<script src="https://cdn.jsdelivr.net/gh/r48n34/chimpers/webOutput/chimper.min.js"></script>
+
+// only these two functions is provided in web
+
+// decode whole encoded string and extract the hidden file Uint8Array
+stringDataToBuffer(encodedText: string): Uint8Array
+
+// encode a file to hidden string array
+encodeFile(data: Buffer): string[]
+```
+
+Check [here](https://github.com/r48n34/chimpers/blob/main/web/index.html) to see how to use in web environment.
