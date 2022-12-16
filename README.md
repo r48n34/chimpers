@@ -8,7 +8,7 @@ yarn add chimpers
 ```
 
 ## Notices
-1. The hidden files are not encrypted currently. 
+1. Hidden file is not encrypted currently. 
 2. Do not attempt to hide a large size file.
 
 ## Usage
