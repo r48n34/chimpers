@@ -33,6 +33,9 @@ function stringDataToBuffer(encodedText) {
 exports.stringDataToBuffer = stringDataToBuffer;
 function decodeFile(encodedText, outputFileName = "decodedFile", outputPath = process.cwd()) {
     return __awaiter(this, void 0, void 0, function* () {
+        if (!encodedText || encodedText === "") {
+            throw new Error("decodeFile function missing encodedText input in params 'encodedText'.");
+        }
         if (!outputFileName || outputFileName === "") {
             throw new Error("decodeFile function missing outputFileName input in params 'outputFileName'.");
         }
