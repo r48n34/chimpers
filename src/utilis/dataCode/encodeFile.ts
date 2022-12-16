@@ -1,4 +1,4 @@
-import { binToHiddenChar } from "../data/dataChar";
+import { binToHiddenChar } from "../../data/dataChar";
 
 export function dec2bin(dec:number) {
     let decStr = (dec >>> 0).toString(2);

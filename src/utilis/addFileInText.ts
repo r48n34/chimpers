@@ -1,6 +1,6 @@
 import clipboard from 'clipboardy';
 import fs from "fs";
-import { encodeFile } from './encodeFile';
+import { encodeFile } from './dataCode/encodeFile';
 
 interface AddFileInTextOptions{
     copyToBoard?: boolean
@@ -25,7 +25,7 @@ export function addFileInText(text: string, file_path: string, option?: AddFileI
 
     const data = fs.readFileSync(file_path, {flag:'r'});
     let hiddenDataArr = encodeFile(data);
-    
+
     textArr[0] += hiddenDataArr.join("")
 
     const finalText = textArr.join(" ")

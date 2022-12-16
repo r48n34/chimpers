@@ -2,7 +2,7 @@ import fs from "fs";
 import FileType from 'file-type';
 import path from "path";
 
-import { hiddenCharTobin, hiddenCharTobinNum } from "../data/dataChar";
+import { hiddenCharTobin, hiddenCharTobinNum } from "../../data/dataChar";
 
 export function stringDataToBuffer(encodedText: string){
     let finalArray = encodedText.split(" ")[0].split("").filter( v => hiddenCharTobinNum.indexOf(v.charCodeAt(0)) >= 0 );

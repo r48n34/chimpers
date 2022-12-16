@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.addFileInText = void 0;
 const clipboardy_1 = __importDefault(require("clipboardy"));
 const fs_1 = __importDefault(require("fs"));
-const encodeFile_1 = require("./encodeFile");
+const encodeFile_1 = require("./dataCode/encodeFile");
 function addFileInText(text, file_path, option) {
     const options = Object.assign({ copyToBoard: false }, option);
     if (!text || text === "") {
