@@ -17,7 +17,7 @@ const hiddenCharTobin = {
 const hiddenCharTobinNum = [8204, 8205, 8288, 8290]
 
 // encodedText: string
-export function stringDataToBuffer(encodedText){
+function stringDataToBuffer(encodedText){
     let finalArray = encodedText.split(" ")[0].split("").filter( v => hiddenCharTobinNum.indexOf(v.charCodeAt(0)) >= 0 );
     
     let bufferArr = [];
@@ -36,7 +36,7 @@ export function stringDataToBuffer(encodedText){
 }
 
 // dec: number
-export function dec2bin(dec) {
+function dec2bin(dec) {
     let decStr = (dec >>> 0).toString(2);
 
     // Expect a output should be 8 bit e.g.(00110110)
@@ -48,7 +48,7 @@ export function dec2bin(dec) {
 }
 
 // data: Buffer
-export function encodeFile(data) {
+function encodeFile(data) {
 
     let finalArray = [] // string[]
 
