@@ -1,10 +1,11 @@
 import fs from "fs";
 import FileType from 'file-type';
+import path from "path";
+
 import { hiddenCharTobin, hiddenCharTobinNum } from "../data/dataChar";
 
-export async function decodeFile(encodedText: string, outputFileName: string = "decodedFile"){
-
-    let finalArray = encodedText.split(" ")[0].split("").filter( v => hiddenCharTobinNum.indexOf(v.charCodeAt(0)) >= 0 )
+export function stringDataToBuffer(encodedText: string){
+    let finalArray = encodedText.split(" ")[0].split("").filter( v => hiddenCharTobinNum.indexOf(v.charCodeAt(0)) >= 0 );
     
     let bufferArr = [];
 
@@ -15,15 +16,29 @@ export async function decodeFile(encodedText: string, outputFileName: string = "
         + hiddenCharTobin[finalArray[i + 2].charCodeAt(0)]
         + hiddenCharTobin[finalArray[i + 3].charCodeAt(0)]
 
-        bufferArr.push(parseInt(codeBin, 2))
+        bufferArr.push(parseInt(codeBin, 2));
     }
 
-    const unitBufferArr = new Uint8Array(bufferArr)
+    return new Uint8Array(bufferArr)
+}
+
+export async function decodeFile(
+    encodedText: string, 
+    outputFileName: string = "decodedFile", 
+    outputPath: string = process.cwd()
+): Promise<Uint8Array> {
+
+    if(!outputFileName || outputFileName === ""){
+        throw new Error("decodeFile function missing outputFileName input in params 'outputFileName'.");
+    }
+
+    const unitBufferArr = stringDataToBuffer(encodedText)
 
     const fileHeader = await FileType.fromBuffer(unitBufferArr);
-    const fileExt = fileHeader ? `.${fileHeader.ext}` : ".txt"
+    const fileExt = fileHeader ? `.${fileHeader.ext}` : ".txt";
 
-    fs.writeFileSync(outputFileName + fileExt, unitBufferArr )
+    let outputLocation = path.join(outputPath, outputFileName + fileExt);
+    fs.writeFileSync(outputLocation, unitBufferArr);
 
     return unitBufferArr
 }

@@ -1,9 +1,17 @@
-import fs from "fs";
 import { binToHiddenChar } from "../data/dataChar";
-import { dec2bin } from "./helper";
 
-export function encodeFile(file_path: string): string[] {
-    const data = fs.readFileSync(file_path, {flag:'r'});
+export function dec2bin(dec:number) {
+    let decStr = (dec >>> 0).toString(2);
+
+    // Expect a output should be 8 bit e.g.(00110110)
+    while(decStr.length <= 7){
+        decStr = "0" + decStr
+    }
+
+    return decStr
+}
+
+export function encodeFile(data: Buffer): string[] {
 
     let finalArray:string[] = [] 
 
