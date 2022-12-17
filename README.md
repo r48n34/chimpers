@@ -63,15 +63,15 @@ async function decodeFile(
 
 ## Web script
 ```html
-<script src="https://cdn.jsdelivr.net/gh/r48n34/chimpers/webOutput/chimper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/r48n34/chimpers/webOutput/chimpers.min.js"></script>
 
 // only these two functions is provided in web
 
 // decode whole encoded string and extract the hidden file Uint8Array
-stringDataToBuffer(encodedText: string): Uint8Array
+champers.stringDataToBuffer(encodedText: string): Uint8Array
 
 // encode a file to hidden string array
-encodeFile(data: Buffer): string[]
+champers.encodeFile(data: Buffer): string[]
 ```
 
 Check [here](https://github.com/r48n34/chimpers/blob/main/web/index.html) to see how to use in web environment.
