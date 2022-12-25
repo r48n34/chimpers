@@ -4,6 +4,7 @@
     import toast from 'svelte-french-toast';
     import { stringDataToBuffer } from "chimpers-web"
     import { Textarea, Label, Button } from 'flowbite-svelte' 
+    import { FileEarmarkLock2 } from 'svelte-bootstrap-svg-icons'; 
 
     let decodeString = '' // string
 
@@ -51,7 +52,9 @@
 </script>
 
 <div>
-    <p class="text-2xl dark:text-white text-center">Decoede message</p>
+    <p class="text-2xl dark:text-white text-center">
+        <FileEarmarkLock2 size="20" class="inline dark:text-white mb-1"/> Decode message
+    </p>
 
     <Label for="textarea-id" class="mb-2 mt-6">Input message</Label>
     <Textarea 
@@ -60,7 +63,7 @@
         rows="4" 
         name="input-message"
         on:change={ (e) => decodeString = e.target.value}
-        bind:decodeString 
+        bind:decodeString  
     />
 
     <div class="flex justify-end">
@@ -70,6 +73,7 @@
             color="cyanToBlue" 
             pill={true} 
             on:click={ () => decodeStringToFile() }
+            disabled={!decodeString}
         >
             Decode
         </Button>

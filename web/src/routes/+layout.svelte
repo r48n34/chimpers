@@ -3,7 +3,7 @@
     import { Button } from 'flowbite-svelte';
     import { DarkMode } from "flowbite-svelte";
     import { Toaster } from 'svelte-french-toast';
-    import { Github, CloudDownload } from 'svelte-bootstrap-svg-icons';
+    import { Github, CloudDownload } from 'svelte-bootstrap-svg-icons'; // DatabaseFillLock
 
     import EncodeFile from "../components/EncodeFile.svelte";
     import DecodeText from "../components/DecodeText.svelte";
@@ -24,7 +24,7 @@
                 class="mr-4 mt-2" 
                 on:click={ () => window.open("https://www.npmjs.com/package/chimpers",'_blank')}
             >
-                <CloudDownload size="20" class=" dark:text-white"/>
+                <CloudDownload size="12" class=" dark:text-white"/>
             </Button>
             <Button
                 size="xs" 
@@ -33,7 +33,7 @@
                 class="mr-4 mt-2" 
                 on:click={ () => window.open("https://github.com/r48n34/chimpers",'_blank')}
             >
-                <Github size="20" class="dark:text-white"/>
+                <Github size="12" class="dark:text-white"/>
             </Button>
         </div>
         
@@ -47,9 +47,12 @@
 
     <br />
 
+    <EncodeFile />
+    <DecodeText />
     <div class="grid grid-cols-2 gap-4">
-        <EncodeFile />
-        <DecodeText />
+    </div>
+
+    <div class="grid grid-cols-2 gap-4">
     </div>
 </div>
 

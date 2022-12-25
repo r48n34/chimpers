@@ -4,6 +4,7 @@
     import toast from 'svelte-french-toast';
     import { encodeFile } from "chimpers-web"
     import { Fileupload, Textarea, Label, Button } from 'flowbite-svelte' 
+    import { FileEarmarkLock } from 'svelte-bootstrap-svg-icons'; 
 
     let files; // Files
     let encodingString = '' // string
@@ -70,7 +71,11 @@
 </script>
 
 <div>
-    <p class="text-2xl dark:text-white text-center">Encode message</p>
+
+    
+    <p class="text-2xl dark:text-white text-center">
+        <FileEarmarkLock size="20" class="inline dark:text-white mb-1"/> Encode message 
+    </p>
 
     <Label for="textarea-id" class="mb-2 mt-6">Input message</Label>
     <Textarea 
@@ -91,28 +96,32 @@
             color="cyanToBlue" 
             pill={true} 
             on:click={ () => clickSee() }
+            disabled={!encodingString || !files}
         >
             Encode
         </Button>
     </div>
 
-    <Label for="textarea-id" class="mb-2 mt-6">Output message</Label>
-    <Textarea 
-        id="op-textarea-id" 
-        placeholder="Your message" 
-        rows="4" 
-        name="op-message"
-        value={outputString}
-    />
-    <div class="flex justify-end">
-        <Button 
-            class="mt-2" 
-            gradient 
-            color="cyanToBlue" 
-            pill={true} 
-            on:click={ () => copyText() }
-        >
-            Copy
-        </Button>
-    </div>
+    {#if outputString}
+        <Label for="textarea-id" class="mb-2 mt-6">Output message</Label>
+        <Textarea 
+            id="op-textarea-id" 
+            placeholder="Your message" 
+            rows="4" 
+            name="op-message"
+            value={outputString}
+        />
+        <div class="flex justify-end">
+            <Button 
+                class="mt-2" 
+                gradient 
+                color="cyanToBlue" 
+                pill={true} 
+                on:click={ () => copyText() }
+            >
+                Copy
+            </Button>
+        </div>
+    {/if}
+
 </div>
