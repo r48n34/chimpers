@@ -1,0 +1,108 @@
+<script>
+// @ts-nocheck
+
+    import toast from 'svelte-french-toast';
+    import { encodeFile } from "chimpers-web"
+    import { Fileupload, Textarea, Label, Button } from 'flowbite-svelte' 
+
+    let files; // Files
+    let encodingString = '' // string
+    let outputString = '' // string
+
+    function clickSee(){
+        if(!files || files.length <= 0){
+            return 
+        }
+
+        let file = files[0];
+
+        let reader = new FileReader();
+        reader.readAsArrayBuffer(file);
+
+        reader.onload = function() {
+            
+            let hiddenDataArr = encodeFile( new Uint8Array(reader.result) );
+            
+            let textArr = encodingString.split(" ");
+            textArr[0] += hiddenDataArr.join("")
+
+            const finalText = textArr.join(" ")
+            outputString = finalText
+
+            toast.success('Success to create encoded text!', {
+                position: "top-right"
+            })
+
+        };
+
+    }
+
+    async function copyText(){
+
+        try {
+            await navigator.clipboard.writeText(outputString)
+                
+            toast.success('Success to copy encoded text!', {
+                position: "top-right"
+            })
+        } 
+        catch (error) {
+            console.log(error);
+
+            toast.error('Failed to copy encoded text!', {
+                    position: "top-right"
+            })
+            
+        }
+    
+    }
+    
+</script>
+
+<div>
+    <p class="text-2xl dark:text-white text-center">Encode message</p>
+
+    <Label for="textarea-id" class="mb-2 mt-6">Input message</Label>
+    <Textarea 
+        id="input-textarea-id" 
+        placeholder="Your message" 
+        rows="4" 
+        name="input-message"
+        on:change={ (e) => encodingString = e.target.value }
+        bind:encodingString 
+    />
+
+    <Fileupload bind:files/>
+
+    <div class="flex justify-end">
+        <Button 
+            class="mt-2" 
+            gradient 
+            color="cyanToBlue" 
+            pill={true} 
+            on:click={ () => clickSee() }
+        >
+            Encode
+        </Button>
+    </div>
+
+    <Label for="textarea-id" class="mb-2 mt-6">Output message</Label>
+    <Textarea 
+        id="op-textarea-id" 
+        placeholder="Your message" 
+        rows="4" 
+        name="op-message"
+        value={outputString}
+    />
+    <div class="flex justify-end">
+        <Button 
+            class="mt-2" 
+            gradient 
+            color="cyanToBlue" 
+            pill={true} 
+            on:click={ () => copyText() }
+        >
+            Copy
+        </Button>
+    </div>
+</div>
