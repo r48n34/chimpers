@@ -10,7 +10,17 @@
     let outputString = '' // string
 
     function clickSee(){
+        if(!encodingString){
+            toast.error('Missing encoding string.', {
+                position: "top-right"
+            })
+            return 
+        }
+
         if(!files || files.length <= 0){
+            toast.error('Missing file input in encoding function.', {
+                position: "top-right"
+            })
             return 
         }
 
