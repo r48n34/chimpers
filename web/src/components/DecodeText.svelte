@@ -56,10 +56,10 @@
         <FileEarmarkLock2 size="20" class="inline dark:text-white mb-1"/> Decode message
     </p>
 
-    <Label for="textarea-id" class="mb-2 mt-6">Input message</Label>
+    <Label for="textarea-id" class="mb-2 mt-6">Decode message</Label>
     <Textarea 
         id="input-textarea-id" 
-        placeholder="Your message" 
+        placeholder="Your decode message" 
         rows="4" 
         name="input-message"
         on:change={ (e) => decodeString = e.target.value}

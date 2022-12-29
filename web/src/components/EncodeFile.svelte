@@ -98,10 +98,10 @@
         <FileEarmarkLock size="20" class="inline dark:text-white mb-1"/> Encode message 
     </p>
 
-    <Label for="textarea-id" class="mb-2 mt-6">Input message</Label>
+    <Label for="textarea-id" class="mb-2 mt-6">Encode message</Label>
     <Textarea 
         id="input-textarea-id" 
-        placeholder="Your message" 
+        placeholder="Your encode message" 
         rows="4" 
         name="input-message"
         on:change={ (e) => encodingString = e.target.value }
