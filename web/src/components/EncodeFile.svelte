@@ -1,10 +1,24 @@
+<style global>
+    @import 'filepond/dist/filepond.css';
+    @import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
+</style>
+
 <script>
 // @ts-nocheck
 
     import toast from 'svelte-french-toast';
     import { encodeFile } from "chimpers-web"
-    import { Fileupload, Textarea, Label, Button } from 'flowbite-svelte' 
+    import { Fileupload, Textarea, Label, Button } from 'flowbite-svelte'     
     import { FileEarmarkLock } from 'svelte-bootstrap-svg-icons'; 
+
+    import FilePond, { registerPlugin, supported } from 'svelte-filepond';
+
+    import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation'
+    import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
+
+    registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
+
+    let pond;
 
     let files; // Files
     let encodingString = '' // string
@@ -67,12 +81,19 @@
         }
     
     }
+
+    function handleRemove() {
+	    files = null;
+    }
+
+    function handleAddFile(err, fileItem) {
+        files = [fileItem.file]
+    }
     
 </script>
 
 <div>
 
-    
     <p class="text-2xl dark:text-white text-center">
         <FileEarmarkLock size="20" class="inline dark:text-white mb-1"/> Encode message 
     </p>
@@ -87,8 +108,13 @@
         bind:encodingString 
     />
 
-    <Fileupload bind:files/>
-
+    <FilePond 
+        bind:this={pond} 
+		allowMultiple={false}
+		onaddfile={handleAddFile}
+        onremovefile={handleRemove}
+    />
+    
     <div class="flex justify-end">
         <Button 
             class="mt-2" 
