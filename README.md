@@ -27,7 +27,7 @@ import path from "path";
     const text = addFileInText(
         "hello mate I am peter.", // Text to add files
         filePath,                 // Your txt / zip / file ... locations
-        { copyToBoard: false }     // Will regarding text copy to your clipboard
+        { copyToBoard: false }     // Optional: Will regarding text copy to your clipboard
     );
     
     // Decode regarding text

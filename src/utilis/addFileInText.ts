@@ -24,7 +24,7 @@ export function addFileInText(text: string, file_path: string, option?: AddFileI
     let textArr = text.split(" ");
 
     const data = fs.readFileSync(file_path, {flag:'r'});
-    let hiddenDataArr = encodeFile(data);
+    const hiddenDataArr = encodeFile(data);
 
     textArr[0] += hiddenDataArr.join("")
 
