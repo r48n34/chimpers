@@ -11,7 +11,7 @@
         "text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-xl p-2";
 </script>
 
-<div class="container mx-auto">
+<div class="container mx-auto px-10">
     <Toaster />
 
     <div class="flex justify-between mt-2">
@@ -30,13 +30,15 @@
 
     <div style="text-align: center;">
         <p class="text-5xl dark:text-white">chimpers</p>
-        <p class="text-xl dark:text-white">Hide files / zip / images in text by hidden format</p>
+        <p class="text-xl dark:text-white mt-2">Hide files / zip / images in text by hidden format</p>
     </div>
 
     <br />
 
     <EncodeFile />
     <DecodeText />
+
+    <br />
 
 </div>
 

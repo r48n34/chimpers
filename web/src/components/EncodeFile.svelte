@@ -53,11 +53,12 @@
 
             const finalText = textArr.join(" ")
             outputString = finalText
-
-            toast.success('Success to create encoded text!', {
+            
+            toast.success('Success to create encoded text and copy!', {
                 position: "top-right"
             })
-
+            
+            copyText();
         };
 
     }
@@ -75,9 +76,8 @@
             console.log(error);
 
             toast.error('Failed to copy encoded text!', {
-                    position: "top-right"
+                position: "top-right"
             })
-            
         }
     
     }
@@ -105,7 +105,8 @@
         rows="4" 
         name="input-message"
         on:change={ (e) => encodingString = e.target.value }
-        bind:encodingString 
+        bind:encodingString
+        class="mb-4"
     />
 
     <FilePond 
@@ -117,7 +118,7 @@
     
     <div class="flex justify-end">
         <Button 
-            class="mt-2" 
+            class="mt-1" 
             gradient 
             color="cyanToBlue" 
             pill={true} 
