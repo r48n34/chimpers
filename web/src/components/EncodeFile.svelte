@@ -8,10 +8,10 @@
 
     import toast from 'svelte-french-toast';
     import { encodeFile } from "chimpers-web"
-    import { Fileupload, Textarea, Label, Button } from 'flowbite-svelte'     
+    import { Textarea, Label, Button } from 'flowbite-svelte'     
     import { FileEarmarkLock } from 'svelte-bootstrap-svg-icons'; 
 
-    import FilePond, { registerPlugin, supported } from 'svelte-filepond';
+    import FilePond, { registerPlugin } from 'svelte-filepond';
 
     import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation'
     import FilePondPluginImagePreview from 'filepond-plugin-image-preview'

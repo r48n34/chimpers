@@ -40,6 +40,7 @@
   "type": "module",
   "dependencies": {
     "chimpers-web": "^1.0.0",
+    "magic-bytes.js": "^1.0.14",
     "svelte-french-toast": "^1.0.3"
   }
 }

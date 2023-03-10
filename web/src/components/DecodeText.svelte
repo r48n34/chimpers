@@ -6,6 +6,8 @@
     import { Textarea, Label, Button } from 'flowbite-svelte' 
     import { FileEarmarkLock2 } from 'svelte-bootstrap-svg-icons'; 
 
+    import { filetypeinfo } from "magic-bytes.js"
+
     let decodeString = '' // string
 
     async function decodeStringToFile(){
@@ -29,6 +31,7 @@
         downloadURL(bufferData)
     }
 
+    // data: Uint8Array
     const downloadURL = (data) => {
         const link = document.createElement('a');
         link.style.display = 'none';
@@ -37,9 +40,12 @@
         const blob = new Blob( [data], { type: '' } );	
         const objectURL = URL.createObjectURL( blob );
         
+        const fileTypeList = filetypeinfo(data)
+        const fileType = fileTypeList.length >= 1 ? fileTypeList[0].extension : "txt";
+
         link.href = objectURL;
         link.href = URL.createObjectURL( blob );
-        link.download = 'data';
+        link.download = `data.${fileType}`;
         link.click();
 
         toast.success('Success to download hidden File!', {
