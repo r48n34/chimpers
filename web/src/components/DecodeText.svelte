@@ -68,7 +68,7 @@
         placeholder="Your decode message" 
         rows="4" 
         name="input-message"
-        on:change={ (e) => decodeString = e.target.value}
+        on:input={ (e) => decodeString = e.target.value}
         bind:decodeString  
     />
 
