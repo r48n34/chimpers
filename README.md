@@ -1,6 +1,13 @@
 # chimpers  
 A nodejs library that Hide files / zip / images in text by hidden format.
 
+<p align="left">
+
+<a href="https://www.npmjs.com/package/chimpers"> <img src="https://img.shields.io/npm/v/chimpers" /> </a>
+<a href="https://github.com/r48n34/chimpers"><img src="https://img.shields.io/github/actions/workflow/status/r48n34/chimpers/test.yml" /></a>
+
+</p>
+
 [Web Demo](https://chimpers-sigma.vercel.app/) | [chimpers npm](https://www.npmjs.com/package/chimpers) | [chimpers-web npm](https://www.npmjs.com/package/chimpers-web) | [Github](https://github.com/r48n34/chimpers)
 
 ## Install 
