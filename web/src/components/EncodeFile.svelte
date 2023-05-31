@@ -7,7 +7,7 @@
 // @ts-nocheck
 
     import toast from 'svelte-french-toast';
-    import { encodeFile } from "chimpers-web"
+    import { addFileInText } from "chimpers-web"
     import { Textarea, Label, Button } from 'flowbite-svelte'     
     import { FileEarmarkLock } from 'svelte-bootstrap-svg-icons'; 
 
@@ -24,7 +24,7 @@
     let encodingString = '' // string
     let outputString = '' // string
 
-    function clickSee(){
+    async function clickSee(){
         if(!encodingString){
             toast.error('Missing encoding string.', {
                 position: "top-right"
@@ -41,25 +41,34 @@
 
         let file = files[0];
 
-        let reader = new FileReader();
-        reader.readAsArrayBuffer(file);
+        const data = await addFileInText(encodingString, file)
+        outputString = data
 
-        reader.onload = function() {
+        toast.success('Success to create encoded text and copy!', {
+            position: "top-right"
+        })
             
-            let hiddenDataArr = encodeFile( new Uint8Array(reader.result) );
-            
-            let textArr = encodingString.split(" ");
-            textArr[0] += hiddenDataArr.join("")
+        copyText();
 
-            const finalText = textArr.join(" ")
-            outputString = finalText
+        // let reader = new FileReader();
+        // reader.readAsArrayBuffer(file);
+
+        // reader.onload = function() {
             
-            toast.success('Success to create encoded text and copy!', {
-                position: "top-right"
-            })
+        //     let hiddenDataArr = encodeFile( new Uint8Array(reader.result) );
             
-            copyText();
-        };
+        //     let textArr = encodingString.split(" ");
+        //     textArr[0] += hiddenDataArr.join("")
+
+        //     const finalText = textArr.join(" ")
+        //     outputString = finalText
+            
+        //     toast.success('Success to create encoded text and copy!', {
+        //         position: "top-right"
+        //     })
+            
+        //     copyText();
+        // };
 
     }
 
