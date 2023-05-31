@@ -70,23 +70,6 @@ async function decodeFile(
 ): Promise<Uint8Array> 
 ```
 
-## Web script
-```html
-<script src="https://cdn.jsdelivr.net/gh/r48n34/chimpers/webOutput/chimpers.min.js"></script>
-```
-
-```js
-// only these two functions is provided in web script
-
-// decode whole encoded string and extract the hidden file Uint8Array
-champers.stringDataToBuffer(encodedText: string): Uint8Array
-
-// encode a file to hidden string array
-champers.encodeFile(data: Buffer): string[]
-```
-
-Check [here](https://github.com/r48n34/chimpers/blob/main/web/index.html) to see how to use in web environment.
-
 ## Roadmap
 - [ ] Encrypt passowrd options
 - [ ] Better compress size
