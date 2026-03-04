@@ -1,6 +1,6 @@
 {
   "name": "chimpers",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "description": "hide files in text",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,7 +11,12 @@
     "buildWeb": "swc ./src/utilis/dataCode -o ./webOutput/index.min.js --config-file .swcrc",
     "test": "jest --maxWorkers 2"
   },
-  "keywords": ["cipher", "steganography", "hacking", "infosec"],
+  "keywords": [
+    "cipher",
+    "steganography",
+    "hacking",
+    "infosec"
+  ],
   "author": "reemo",
   "homepage": "https://github.com/r48n34/chimpers",
   "repository": "https://github.com/r48n34/chimpers",
@@ -29,5 +34,6 @@
   "dependencies": {
     "clipboardy": "2.3.0",
     "file-type": "16.5.4"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

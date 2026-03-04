@@ -17,7 +17,7 @@ function encodeFile(data) {
     for (let v of data) {
         const binStr = dec2bin(v);
         for (let i = 0; i < 7; i += 2) {
-            const code = binStr[i] + binStr[i + 1];
+            const code = (binStr[i] + binStr[i + 1]);
             finalArray.push(dataChar_1.binToHiddenChar[code]);
         }
     }

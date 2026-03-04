@@ -7,7 +7,7 @@ exports.binToHiddenChar = {
     "01": "\u200D",
     "10": "\u2060",
     "11": "\u2062",
-    "en": "\u2064" // not in use
+    "en": "\u2064", // not in use
 };
 exports.hiddenCharTobin = {
     "8204": "00",

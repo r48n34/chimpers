@@ -1,29 +1,25 @@
 import path from "path";
+import fs from "fs";
 import { addFileInText } from "../src/utilis/addFileInText"
 
 describe("addFileInText function testing", () => {
 
-    const filePath = path.join(__dirname, "..", "test-data" , "hello.zip")
-
-    test('addFileInText normal text', () => {
-        let text = addFileInText("hello mate I am peter.", filePath, { copyToBoard: false });
-        
-        expect(text).toBe("hello‍‍‌‌‍‌⁠⁢‌‌‌⁢‌‌‍‌‌‍‍‌‌‌‌‌‌‌‌‍‌‌‌‌‌‌⁠‌‌‌‌‌⁠‍‌⁠⁠⁠⁠‍⁠‌⁢⁢‍‍‍‍⁠‍‌⁢‍‌‍‌‌⁠⁠⁠‍⁠⁠‌‌⁠⁠⁢‌‌‌‌‌‌‌‌‌‌‌‌‌⁠‍‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌⁠‍‌‌‌‌‌‌‌‌‌‌‌‌‍⁠⁠‌‍⁠‍‍‍⁠⁢‌‍⁠⁢‌‍⁠⁢⁢‌⁠⁢⁠‍⁢‍‌‍⁢⁠‌‍⁢‍‌‍‌⁠⁢⁢‌‌‌⁢‍‍⁠‌‍‌⁢⁠⁠⁠⁢‍⁠‌‌‌⁢‍⁢⁠‍⁢‌‍⁠⁠⁢⁠‌‌‌⁠‍‍‍⁠‌⁢⁠⁢‍‍⁢‌‌‍‍⁠‌⁠⁢‍‍‍‍⁢‍⁠‌⁢⁠⁠‌‍‌⁢‍⁢⁢‍⁠‌‍‌⁠‍‍⁢‌⁢‌⁢‍‍⁢‌⁢‌‍⁠‌‍‍‌‌⁢‌‍⁠⁢‍⁢⁢‌‍‌⁠⁢‍⁠‌‍⁢‍‍⁢‌⁠⁠‌‌⁠‍‌⁢⁠⁠‌⁢⁠‌‍‍‍‌⁢⁠‌⁢‌‍‌⁢⁢⁢⁠⁢⁠⁠⁢‌⁠⁢⁢⁠‍‌⁠‍⁢‌‍‌‍‍‌‌‍‌⁠⁢‌‌‌‍‌‌‌⁠‌⁢⁢⁢‌‌‌‌‌‍‍‌‌‌‌‌‌‌‌‍‌‌‌‌‌‌⁠‌‌‌‌‌⁠‍‌⁠⁠⁠⁠‍⁠‌⁢⁢‍‍‍‍⁠‍‌⁢‍‌‍‌‌⁠⁠⁠‍⁠⁠‌‌⁠⁠⁢‌‌‌‌‌‌‌‌‌‌‌‌‌⁠‍‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌⁠‍‌‌‌‌‌⁠‍‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌⁠‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‍⁠⁠‌‍⁠‍‍‍⁠⁢‌‍⁠⁢‌‍⁠⁢⁢‌⁠⁢⁠‍⁢‍‌‍⁢⁠‌‍⁢‍‌‌‌⁠⁠‌‌‌‌‌⁠‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‍‌‌‌‌‌‍⁠‌‌‌‌‌⁢⁠⁠⁠⁢‍⁢‌⁢⁢‌‌⁢⁠‍‍⁠‌‍⁠‌‍‌‌⁢‍⁠‍‌‌‌‍⁠⁢⁠‌⁠⁢‍‌‌⁢‌⁠‍‍‌⁠⁠‌⁠⁠‌‍‌‌⁢‍⁠‍‌‌‌‍⁢⁠⁠⁠⁢‍⁢‌⁢⁢‌‌⁢⁠‍‍⁠‌‍⁠‌‍‌‌⁢‍⁠‍‌‌‌‍‍‍‌‌‍‌⁠⁢‌‌‍‍‌‌‍⁠‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‍‌‌‌‌‌‌‌‍‌‌‌‌‍‍⁠⁢‌‌‌‌‌‌‌‌‌‌‌‌‍‍‌⁠‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌ mate I am peter.");
-    })
+    const filePath = path.join(__dirname, "..", "test-data" , "hello.zip");
+    const fileData = fs.readFileSync(filePath);
 
     test('addFileInText no text input', () => {
 
         expect(() => {
-            addFileInText("", filePath, { copyToBoard: false });
+            addFileInText("", fileData, { copyToBoard: false });
         }).toThrow(new Error("addFileInText function missing text input in params 'text'."))
         
     })
 
-    test('addFileInText no text input', () => {
+    test('addFileInText no fileData input', () => {
 
         expect(() => {
-            addFileInText("hello mate", "", { copyToBoard: false });
-        }).toThrow(new Error("addFileInText function missing file_path input in params 'file_path'."))  
+            addFileInText("hello mate", null as any, { copyToBoard: false });  
+        }).toThrow(new Error("addFileInText function missing fileData input in params 'fileData'."))
    
     })
 

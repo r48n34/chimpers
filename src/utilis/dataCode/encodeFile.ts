@@ -1,4 +1,4 @@
-import { binToHiddenChar } from "../../data/dataChar";
+import { binToHiddenChar, type BinChar } from "../../data/dataChar";
 
 export function dec2bin(dec:number) {
     let decStr = (dec >>> 0).toString(2);
@@ -21,7 +21,7 @@ export function encodeFile(data: Buffer): string[] {
         const binStr = dec2bin(v);
 
         for(let i = 0; i < 7; i += 2){
-            const code = binStr[i] + binStr[i + 1]
+            const code = (binStr[i] + binStr[i + 1]) as BinChar;
             finalArray.push(binToHiddenChar[code])
         }
            

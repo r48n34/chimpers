@@ -2,18 +2,20 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.stringDataToBuffer = void 0;
 const dataChar_1 = require("../../data/dataChar");
+const stringDataDecode_1 = require("../../data/stringDataDecode");
 function stringDataToBuffer(encodedText) {
-    let finalArray = encodedText.split(" ")[0].split("").filter(v => dataChar_1.hiddenCharTobinNum.indexOf(v.charCodeAt(0)) >= 0);
+    // const finalArray = encodedText.split(" ")[0].split("").filter( v => hiddenCharTobinNum.indexOf(v.charCodeAt(0)) >= 0 );
+    let finalArray = (0, stringDataDecode_1.stringDataDecode)(encodedText, false);
     if (finalArray.length % 4 !== 0) {
         throw new Error("Invalid input encodedText.");
     }
     let bufferArr = [];
     // Decode
     for (let i = 0; i < finalArray.length; i += 4) {
-        const codeBin = dataChar_1.hiddenCharTobin[finalArray[i].charCodeAt(0)]
-            + dataChar_1.hiddenCharTobin[finalArray[i + 1].charCodeAt(0)]
-            + dataChar_1.hiddenCharTobin[finalArray[i + 2].charCodeAt(0)]
-            + dataChar_1.hiddenCharTobin[finalArray[i + 3].charCodeAt(0)];
+        const codeBin = dataChar_1.hiddenCharTobin[finalArray[i].charCodeAt(0).toString()]
+            + dataChar_1.hiddenCharTobin[finalArray[i + 1].charCodeAt(0).toString()]
+            + dataChar_1.hiddenCharTobin[finalArray[i + 2].charCodeAt(0).toString()]
+            + dataChar_1.hiddenCharTobin[finalArray[i + 3].charCodeAt(0).toString()];
         bufferArr.push(parseInt(codeBin, 2));
     }
     return new Uint8Array(bufferArr);

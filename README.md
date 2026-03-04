@@ -16,6 +16,10 @@ npm i chimpers
 yarn add chimpers
 ```
 
+## 2.0 Updates
+1. The encrypt string is not require space ("").
+
+
 ## Notices
 1. Hidden file is not encrypted currently. 
 2. Do not attempt to hide large size file.
